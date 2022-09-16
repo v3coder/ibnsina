@@ -8,6 +8,8 @@ h1 { font-size: 20px; font-weight: 500; background: #cfe8fd; border-left: 5px so
 .card h2 {background: #f6f8fa; color: #333; margin: 0px 0px 10px 0px; padding: 10px 5px; font-weight: normal; border-bottom: 1px solid #d0d7de; text-align: center; font-size: 17px}
 .card a {background-color: #f9f9fb; color: #0969e1; padding: 10px; cursor: pointer; position: relative; display: block; border: 1px solid #cdcdcd; margin: 10px}
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 0px;}
+input[type="submit"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
+input[type="text"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 </style>
 <title>IBN SINA</title></head><body>
 
@@ -19,7 +21,14 @@ h1 { font-size: 20px; font-weight: 500; background: #cfe8fd; border-left: 5px so
 <a target="_blank" href="http://210.4.73.10:52/appointments/apps/homeservice/appointment/3009/2">Home Service</a>
 <a target="_blank" href="https://www.ibnsinatrust.com/Health_Check_up_Package.php">Health Package</a>
 <a target="_blank" href="https://service.ibnsinatrust.com/report/">Test Report</a>
+</div>
 
+<div class="card"><h2>Test Report</h2>
+<form action="https://service.ibnsinatrust.com/report">
+  <input type="text" name="inv" placeholder="Invoice Number" pattern="T[0-9].{4,}">
+  <input type="text" name="invoice_contact" placeholder="Mobile Number" pattern="[0-9]{11}">
+  <input type="submit" value="View">
+</form> 
 </div>
 </div>
 
