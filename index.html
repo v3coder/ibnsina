@@ -30,7 +30,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </option><option>General-Physician</option><option>General-Surgery</option><option>Blood-Cancer</option><option>Psychiatric</option><option>Dental</option><option>Food</option>
 </select>
 <select id="doctor"><option>Select Doctor</option></select>
-<a id="viewDoc" href="" target="_blank">View</a>
+<a id="viewDoc" href="" target="_blank">Make Appointment</a>
 </div>
 
 <div class="card"><h2>Test Report</h2>
@@ -120,14 +120,13 @@ document.getElementById('pCorp').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT
 document.getElementById('pInSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf'
 document.getElementById('pPharSell').href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+startLastMonthMMM()+'&P_END_DT='+endLastMonthMMM()+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'
 
-doctor.onchange = function() {
-viewDoc.href = 'http://210.4.73.10:52/appointments/apps/appointment/'+doctor.value;
-}
-function changeValue(){
-var x = dipartment.value;
+// Doctor Appoinment
+doctor.onchange = function() { viewDoc.href = 'http://210.4.73.10:52/appointments/apps/appointment/'+doctor.value; }
+
+function changeValue(){ var x = dipartment.value;
 if(x=='Gynae'){ document.getElementById('doctor').innerHTML=
-'<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option>'; }
-if(x=='Two'){ document.getElementById('doctor').innerHTML='<option>B</option><option>Two</option>'; }
+'<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option><option value="1523/13105">Assoc. Prof. Dr. Sarwat Jahan Zubyra</option><option value="1525/13106">Dr. Umme Kulsum</option><option value="1526/13107">Asst. Prof. Dr. Fazilatunnesa Naznin</option><option value="3044/13896">Dr. Chalontika Rani</option><option value="3454/14389">Dr. Farjana Islam Shampa</option><option value="3521/14471">Dr. Farjana Sharmin Mitul</option><option value="3591/14565">Dr. Shirin Hossain</option>'; }
+if(x=='Medicine'){ document.getElementById('doctor').innerHTML='<option>Select Doctor</option><option value="1504/13108">Asst. Prof. Dr. Kazi Shamim Ahmed</option><option value="1527/13110">Dr. Sardar Md Tanvir</option><option value="1680/13402">Dr. Abida Sultana Sathi</option><option value="1743/13111">Asst. Prof. Dr. Shamsun Nahar</option>'; }
 }
 
 </script>
