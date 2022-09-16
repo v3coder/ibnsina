@@ -10,6 +10,7 @@ h1 { font-size: 20px; font-weight: 500; background: #cfe8fd; border-left: 5px so
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 0px;}
 input[type="submit"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 input[type="text"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
+select#dipartment, select#doctor { background-color: white; color: #777; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 </style>
 <title>IBN SINA</title></head><body>
 
@@ -21,6 +22,15 @@ input[type="text"] { background-color: white; color: #0969e1; padding: 10px; bor
 <a target="_blank" href="http://210.4.73.10:52/appointments/apps/homeservice/appointment/3009/2">Home Service</a>
 <a target="_blank" href="https://www.ibnsinatrust.com/Health_Check_up_Package.php">Health Package</a>
 <a target="_blank" href="https://service.ibnsinatrust.com/report/">Test Report</a>
+</div>
+
+<div class="card"><h2>Doctor Appoinment</h2>
+<select onchange="changeValue()" id="dipartment">
+<option>Select Dipartment</option><option>Gynae</option><option>Medicine</option><option>Chest-Medicine</option><option>Cardiology</option><option>Gastro</option><option>Hepatology</option><option>Neuro-Medicine</option><option>Neuro-Surgery</option><option>Orthopedic</option><option>Physical-Medicine</option><option>Rheumatology</option><option>Nephrology</option><option>Urology</option><option>E.N.T</option><option>Endocrinology</option><option>Pediatric</option><option>Eye</option><option>Skin-and-Sex</option><option>Plastic-Surgery
+</option><option>General-Physician</option><option>General-Surgery</option><option>Blood-Cancer</option><option>Psychiatric</option><option>Dental</option><option>Food</option>
+</select>
+<select id="doctor"><option>Select Doctor</option></select>
+<a id="viewDoc" href="" target="_blank">View</a>
 </div>
 
 <div class="card"><h2>Test Report</h2>
@@ -109,5 +119,16 @@ document.getElementById('pDocSell').href = 'http://192.168.4.5:9090/IBN_SINA_REP
 document.getElementById('pCorp').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&corporate=All&createdBy=All&type=detail&format=pdf'
 document.getElementById('pInSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf'
 document.getElementById('pPharSell').href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+startLastMonthMMM()+'&P_END_DT='+endLastMonthMMM()+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'
+
+doctor.onchange = function() {
+viewDoc.href = 'http://210.4.73.10:52/appointments/apps/appointment/'+doctor.value;
+}
+function changeValue(){
+var x = dipartment.value;
+if(x=='Gynae'){ document.getElementById('doctor').innerHTML=
+'<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option>'; }
+if(x=='Two'){ document.getElementById('doctor').innerHTML='<option>B</option><option>Two</option>'; }
+}
+
 </script>
 </body>
