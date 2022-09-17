@@ -43,7 +43,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </div>
 </div>
 
-<h1>Yeastarday Report</h1>
+<h1 id="yDate">Yeastarday Report</h1>
 
 <div class="grid">
 <div class="card"><h2>Doctor Wise</h2>
@@ -60,7 +60,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </div>
 </div>
 
-<h1>Past Month Report</h1>
+<h1 id="yMonth">Past Month Report</h1>
 
 <div class="grid">
 <div class="card"><h2>Doctor Wise</h2>
@@ -106,6 +106,16 @@ var y1 = date.getFullYear() - 1; // Past Year
 var md1 = new Date(yyyy, mm -1, 0).getDate(); // Past Month Last Date
 
 today = mm + '/' + dd + '/' + yyyy;
+
+// Yeastarday Dayname
+var d = new Date(); d.setDate(d.getDate() - 1);
+var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
+document.querySelector('#yDate').innerText = yDay + ' Report';
+
+// Past Month Name
+var d = new Date(); d.setMonth(d.getMonth()-1);
+var yMonth = d.toLocaleString('default', { month: 'long' });
+document.querySelector('#yMonth').innerText = yMonth + ' Report';
 
 
 document.getElementById('ymri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
