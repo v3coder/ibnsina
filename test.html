@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-body { font: 10px Verdana, sans-serif; background-color: #f8f8f8; overflow: hidden;}
+body { font: 10px Verdana, sans-serif; background-color: #f8f8f8;}
 
 #myInput {
   width: 100%;
@@ -21,6 +21,12 @@ body { font: 10px Verdana, sans-serif; background-color: #f8f8f8; overflow: hidd
   width: 100%;
   border: 1px solid #ddd;
   display: none;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#myTable::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 #myTable th, #myTable td {
