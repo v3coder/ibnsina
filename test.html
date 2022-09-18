@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  display: none;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+  
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h2>My Customers</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Test</th>
+    <th style="width:40%;">Price</th>
+  </tr>
+
+<tr><td>A.FETO PROTEIN</td><td>100</td></tr>
+<tr><td>ABDOMINAL FLUID AFB</td><td>300</td></tr>
+<tr><td>ABDOMINAL FLUID C/S</td><td>600</td></tr>
+<tr><td>ALBUMIN</td><td>300</td></tr>
+<tr><td>ALCOHOL TEST</td><td>1,000</td></tr>
+<tr><td>ALDOLASE</td><td>1,100</td></tr>
+<tr><td>Aldosterone</td><td>3,000</td></tr>
+<tr><td>ALK.PHOSPHATE</td><td>300</td></tr>
+<tr><td>AMH (ANTI MULLERIAN HORMONE)</td><td>3,000</td></tr>
+<tr><td>AMPHETAMINE (URINE)</td><td>1,000</td></tr>
+<tr><td>AMYLASE</td><td>850</td></tr>
+<tr><td>ANA/ANF</td><td>1,000</td></tr>
+<tr><td>Anti Ds DNA</td><td>1,300</td></tr>
+<tr><td>Anti HEV</td><td>1,000</td></tr>
+<tr><td>Anti-Cardiolipin IgG</td><td>1,500</td></tr>
+<tr><td>Anti-CCP</td><td>1,200</td></tr>
+<tr><td>Anti-HBs/HBsAb</td><td>1,000</td></tr>
+<tr><td>Anti-HCV</td><td>1,000</td></tr>
+<tr><td>Anti-HCV (ICT)</td><td>1,000</td></tr>
+<tr><td>Anti-Phospholipid Ab</td><td>2,400</td></tr>
+<tr><td>Anti-Phospholipid IgM</td><td>1,200</td></tr>
+<tr><td>APTT</td><td>850</td></tr>
+<tr><td>ASCITIC FLUID ADA</td><td>900</td></tr>
+<tr><td>ASCITIC FLUID AMYLASE</td><td>900</td></tr>
+<tr><td>ASO TITRE</td><td>600</td></tr>
+<tr><td>B.S.1H AFTER 75GM GLUCOSE</td><td>150</td></tr>
+<tr><td>B.S.2H AFTER INSULIN</td><td>150</td></tr>
+<tr><td>B.SUGAR FASTING</td><td>150</td></tr>
+<tr><td>B.SUGAR RANDOM</td><td>150</td></tr>
+<tr><td>B/S 2HRS ABF</td><td>150</td></tr>
+<tr><td>BASAL CORTISOL (EVENING)</td><td>1,000</td></tr>
+<tr><td>BENZODIAZEPINE (Urine)</td><td>1,000</td></tr>
+<tr><td>B-HCG</td><td>1,100</td></tr>
+<tr><td>Bilirubin D/I</td><td>500</td></tr>
+<tr><td>BLOOD C/S (Fan Method)</td><td>1,000</td></tr>
+<tr><td>BLOOD FILM</td><td>300</td></tr>
+<tr><td>BLOOD GROUP (ABORH)</td><td>200</td></tr>
+<tr><td>BLOOD PRESSURE Monitoring 24Hrs</td><td>3,300</td></tr>
+<tr><td>BNP</td><td>3,200</td></tr>
+<tr><td>BONE DENSITOMETRY (BMD)</td><td>3,000</td></tr>
+<tr><td>BONE MARROW</td><td>3,000</td></tr>
+<tr><td>BT CT</td><td>400</td></tr>
+<tr><td>C3</td><td>1,000</td></tr>
+<tr><td>C4</td><td>1,000</td></tr>
+<tr><td>CA-125</td><td>1,000</td></tr>
+<tr><td>CA-15.3</td><td>1,000</td></tr>
+<tr><td>CA-19.9</td><td>1,000</td></tr>
+<tr><td>CALCITONIN</td><td>2,000</td></tr>
+<tr><td>CALCIUM</td><td>350</td></tr>
+<tr><td>CANCA</td><td>1,000</td></tr>
+<tr><td>CANNABINOIDS (Urine)</td><td>1,000</td></tr>
+<tr><td>CANNULA SETTING CHARGE</td><td>200</td></tr>
+<tr><td>CARBAMAZAPINE</td><td>1,000</td></tr>
+<tr><td>CBCGovt.Rate</td><td>400</td></tr>
+<tr><td>CCR</td><td>700</td></tr>
+<tr><td>CEA</td><td>1,000</td></tr>
+<tr><td>CHIKUN GUNYA</td><td>1,200</td></tr>
+<tr><td>CHOLESTEROL</td><td>300</td></tr>
+<tr><td>CKMB (Creatine Kinase)</td><td>1,000</td></tr>
+<tr><td>CLOTTING TIME</td><td>200</td></tr>
+<tr><td>COAGULATION TIME</td><td>200</td></tr>
+<tr><td>COLONOSCOPY(Full)</td><td>7,000</td></tr>
+<tr><td>COLONOSCOPY(Short)</td><td>3,500</td></tr>
+<tr><td>COLPOSCOPY</td><td>2,000</td></tr>
+<tr><td>COOMB'S D/I</td><td>650</td></tr>
+<tr><td>CORTISOL (Random)</td><td>1,000</td></tr>
+<tr><td>COVID-19 Ag (Gov.Rate)</td><td>700</td></tr>
+<tr><td>C-Peptide</td><td>1,000</td></tr>
+<tr><td>CPK</td><td>800</td></tr>
+<tr><td>CREATININE</td><td>300</td></tr>
+<tr><td>CRP</td><td>600</td></tr>
+<tr><td>CSF MALIGNANT CELL</td><td>600</td></tr>
+<tr><td>CSF VDRL</td><td>400</td></tr>
+<tr><td>CT ABDOMEN</td><td>12,000</td></tr>
+<tr><td>CT ABDOMEN ANGIOGRAM</td><td>16,000</td></tr>
+<tr><td>CT ANGIO UPPER LIMB</td><td>15,000</td></tr>
+<tr><td>CT ANKLE JOINT</td><td>6,000</td></tr>
+<tr><td>CT BOTH HIP JT</td><td>5,000</td></tr>
+<tr><td>CT BRAIN</td><td>4,000</td></tr>
+<tr><td>CT BRAIN & ORBIT</td><td>6,000</td></tr>
+<tr><td>CT BRAIN & PNS</td><td>7,000</td></tr>
+<tr><td>CT BRAIN ANGIOGRAM</td><td>12,500</td></tr>
+<tr><td>CT CAROTID & BRAIN ANGIOGRAM</td><td>15,000</td></tr>
+<tr><td>CT CERVICAL SPINE</td><td>6,000</td></tr>
+<tr><td>CT CHEST</td><td>6,000</td></tr>
+<tr><td>CT CORONARY ANGIOGRAM</td><td>16,000</td></tr>
+<tr><td>CT DORSAL SPINE</td><td>6,000</td></tr>
+<tr><td>CT ELBOW JOINT RT./LT.</td><td>6,000</td></tr>
+<tr><td>CT FEMUR</td><td>6,000</td></tr>
+<tr><td>CT FOREARM RT./LT.</td><td>6,000</td></tr>
+<tr><td>CT HBS & PANCREAS</td><td>6,000</td></tr>
+<tr><td>CT HEAD</td><td>4,000</td></tr>
+<tr><td>CT JOINT/BONE</td><td>6,000</td></tr>
+<tr><td>CT KNEE BOTH</td><td>12,000</td></tr>
+<tr><td>CT L/S.SPINE</td><td>6,000</td></tr>
+<tr><td>CT LEG RT./LT.</td><td>6,000</td></tr>
+<tr><td>CT LOWER ABDOMEN</td><td>6,000</td></tr>
+<tr><td>CT LOWER ABDOMEN ANGIOGRAM</td><td>15,000</td></tr>
+<tr><td>CT MAXILLA</td><td>6,000</td></tr>
+<tr><td>CT NECK</td><td>6,500</td></tr>
+<tr><td>CT ORBIT</td><td>6,000</td></tr>
+<tr><td>CT PELVIS</td><td>6,500</td></tr>
+<tr><td>CT PERIPHERAL ANGIOGRAM</td><td>16,000</td></tr>
+<tr><td>CT PNS</td><td>6,000</td></tr>
+<tr><td>CT SCAN FOOT RT</td><td>6,000</td></tr>
+<tr><td>CT SCAN KNEE JOINT</td><td>6,000</td></tr>
+<tr><td>CT SCAN KUB</td><td>13,000</td></tr>
+<tr><td>CT SCAN KUB (NON CONTRAST)</td><td>8,800</td></tr>
+<tr><td>CT SCAN LIVER PANCREAS</td><td>6,000</td></tr>
+<tr><td>CT SCAN THORACIC SPINE</td><td>6,000</td></tr>
+<tr><td>CT Scan Whole Body</td><td>27,000</td></tr>
+<tr><td>CT UROGRAM</td><td>13,000</td></tr>
+<tr><td>CT WHOLE ABDOMEN</td><td>12,000</td></tr>
+<tr><td>D-DlMER</td><td>1,500</td></tr>
+<tr><td>DENGUE ab IgG, IgM_Govt. Rate</td><td>500</td></tr>
+<tr><td>Dengue NS I Ag_Govt. Rate</td><td>500</td></tr>
+<tr><td>Doppler Study of Carotid Vessel</td><td>3,000</td></tr>
+<tr><td>Doppler Study of Upper limb vessels</td><td>3,000</td></tr>
+<tr><td>DPOAE</td><td>1,600</td></tr>
+<tr><td>DUPLEX STUDY OF FACE</td><td>3,000</td></tr>
+<tr><td>DUPLEX STUDY OF NECK VESSELS</td><td>3,000</td></tr>
+<tr><td>DUPLEX STUDY OF PENILE VESSELES</td><td>4,500</td></tr>
+<tr><td>DUPLEX STUDY OF RT.UPPER LIMB</td><td>3,000</td></tr>
+<tr><td>DUPLEX STUDY OF TESTIES</td><td>4,000</td></tr>
+<tr><td>ECG</td><td>300</td></tr>
+<tr><td>ECHO COL.DOP.</td><td>2,500</td></tr>
+<tr><td>ECHOCARDIOGRAM</td><td>1,200</td></tr>
+<tr><td>EEG DIGITAL</td><td>2,000</td></tr>
+<tr><td>ELECTROLYTES</td><td>850</td></tr>
+<tr><td>EMG BOTH UPPER LIMBS</td><td>6,000</td></tr>
+<tr><td>EMG CROSS LIMBS</td><td>6,000</td></tr>
+<tr><td>ENDOSCOPY UPPER GI</td><td>2,000</td></tr>
+<tr><td>ESR</td><td>150</td></tr>
+<tr><td>ETT</td><td>2,500</td></tr>
+<tr><td>FERRITIN</td><td>1,000</td></tr>
+<tr><td>FIBRE OPTIC LARYNGOSCOPY (FOL)</td><td>2,500</td></tr>
+<tr><td>FIBROSCAN WITH CAP</td><td>4,675</td></tr>
+<tr><td>FNAC (1)</td><td>1,400</td></tr>
+<tr><td>FNAC AXILLA RIGHT (IMIC)</td><td>1,600</td></tr>
+<tr><td>FREE PSA</td><td>1,000</td></tr>
+<tr><td>FSH</td><td>1,000</td></tr>
+<tr><td>FT3</td><td>1,000</td></tr>
+<tr><td>FT3 + FT4</td><td>2,000</td></tr>
+<tr><td>FT4</td><td>1,000</td></tr>
+<tr><td>GLOBULIN</td><td>600</td></tr>
+<tr><td>GROWTH HORMONE (GH)</td><td>1,100</td></tr>
+<tr><td>HB TC DC ESR</td><td>400</td></tr>
+<tr><td>HbAl C</td><td>1,000</td></tr>
+<tr><td>HBeAg</td><td>1,050</td></tr>
+<tr><td>Hb-ELECTROPHORESIS</td><td>1,500</td></tr>
+<tr><td>HISTOPATH</td><td>1,000</td></tr>
+<tr><td>HOLTER MONITORING</td><td>2,800</td></tr>
+<tr><td>HRCT SCAN OF CHEST</td><td>6,000</td></tr>
+<tr><td>ICT MALARIA</td><td>900</td></tr>
+<tr><td>IgE Serum</td><td>950</td></tr>
+<tr><td>IL-6 (Interleukin-6)</td><td>2,000</td></tr>
+<tr><td>IRON</td><td>850</td></tr>
+<tr><td>LIPID PROFILE (Fasting)</td><td>1,000</td></tr>
+<tr><td>LUPUS ANTICOAGULANT</td><td>5,000</td></tr>
+<tr><td>M.T.</td><td>350</td></tr>
+<tr><td>MAMMOGRAPHY SINGLE BREAST</td><td>1,000</td></tr>
+<tr><td>MRA BRAIN</td><td>7,000</td></tr>
+<tr><td>MRCP</td><td>8,000</td></tr>
+<tr><td>MRI & MRA BRAIN</td><td>11,000</td></tr>
+<tr><td>MRI & MRA WITH MRV BRAIN</td><td>12,000</td></tr>
+<tr><td>MRI ANKLE (RT.)</td><td>9,000</td></tr>
+<tr><td>MRI ARM</td><td>9,000</td></tr>
+<tr><td>MRI BRAIN</td><td>7,000</td></tr>
+<tr><td>MRI BRAIN & ORBIT</td><td>11,000</td></tr>
+<tr><td>MRI BRAIN & SKULL</td><td>7,000</td></tr>
+<tr><td>MRI CERVICAL SPINE</td><td>7,000</td></tr>
+<tr><td>MRI CHEST</td><td>10,000</td></tr>
+<tr><td>MRI DORSAL LUMBER SPINE</td><td>11,000</td></tr>
+<tr><td>MRI DORSAL SPINE</td><td>7,000</td></tr>
+<tr><td>MRI DORSAL SPINE & SCREENING W/S</td><td>8,000</td></tr>
+<tr><td>MRI FINGER RT.</td><td>8,000</td></tr>
+<tr><td>MRI FOOT RT.</td><td>8,000</td></tr>
+<tr><td>MRI FOREARM RT.</td><td>8,000</td></tr>
+<tr><td>MRI HAND RT.</td><td>8,000</td></tr>
+<tr><td>MRI HBS</td><td>8,000</td></tr>
+<tr><td>MRI HIP JOINT</td><td>9,000</td></tr>
+<tr><td>MRI KNEE JOINT RT.</td><td>9,000</td></tr>
+<tr><td>MRI LOWER ABDOMEN</td><td>8,000</td></tr>
+<tr><td>MRI LT KNEE JOINT</td><td>9,000</td></tr>
+<tr><td>MRI LUMBO-SACRAL SPINE</td><td>7,000</td></tr>
+<tr><td>MRI ORBIT</td><td>8,000</td></tr>
+<tr><td>MRI PELVIS WITH BOTH HIPS</td><td>9,000</td></tr>
+<tr><td>MRI RT KNEE JOINT</td><td>9,000</td></tr>
+<tr><td>MRI UPPER ABDOMEN</td><td>9,000</td></tr>
+<tr><td>MRI WHOLE ABDOMEN</td><td>18,000</td></tr>
+<tr><td>MRI WHOLE BODY</td><td>30,000</td></tr>
+<tr><td>MRI WHOLE SPINE</td><td>21,000</td></tr>
+<tr><td>MRV BRAIN</td><td>12,000</td></tr>
+<tr><td>NCV BOTH LOWER LIMBS</td><td>6,000</td></tr>
+<tr><td>NCV CROSS LIMBS</td><td>6,000</td></tr>
+<tr><td>NCV LT LOWER LIMB</td><td>3,000</td></tr>
+<tr><td>PAP'S SMEAR</td><td>800</td></tr>
+<tr><td>PCR HBsAg Quantitative</td><td>2,500</td></tr>
+<tr><td>"PCR HBV DNA QUALITATIVE (REAL TIME PCR)"</td><td>8,000</td></tr>
+<tr><td>"PCR HCV RNA GENOTYPING (Real Time PCR)"</td><td>14,000</td></tr>
+<tr><td>"PCR HCV RNA QUANTITATIVE (Real Time PCR)"</td><td>10,000</td></tr>
+<tr><td>PCR HLA-B27</td><td>4,000</td></tr>
+<tr><td>PCR HPV DNA (REAL TIME PCR)</td><td>6,500</td></tr>
+<tr><td>PCR MTB DNA (Blood)</td><td>6,000</td></tr>
+<tr><td>PCR MTB DNA Gene Xpert</td><td>6,000</td></tr>
+<tr><td>PENICILLINE SENSITIVE TEST</td><td>105</td></tr>
+<tr><td>PLATELET COUNT</td><td>250</td></tr>
+<tr><td>POLYPECTOMY(SINGLE)</td><td>8,000</td></tr>
+<tr><td>PROCTOSCOPY</td><td>2,000</td></tr>
+<tr><td>PROLACTIN</td><td>1,000</td></tr>
+<tr><td>PSA</td><td>1,000</td></tr>
+<tr><td>SEMEN ANALYSIS</td><td>700</td></tr>
+<tr><td>SERUM LIPASE</td><td>1,000</td></tr>
+<tr><td>Serum Oestrogen</td><td>1,000</td></tr>
+<tr><td>SGOT (AST)</td><td>350</td></tr>
+<tr><td>SGPT (ALT)</td><td>350</td></tr>
+<tr><td>SKIN SCR.FUNGUS</td><td>300</td></tr>
+<tr><td>STOOL R/E M/E</td><td>150</td></tr>
+<tr><td>T3</td><td>800</td></tr>
+<tr><td>T3 T4 TSH</td><td>2,400</td></tr>
+<tr><td>T4</td><td>800</td></tr>
+<tr><td>TB-Gold</td><td>8,000</td></tr>
+<tr><td>TB-IgA.IgM.IgG</td><td>3,000</td></tr>
+<tr><td>TC DC ESR</td><td>400</td></tr>
+<tr><td>TESTOSTERONE</td><td>1,000</td></tr>
+<tr><td>TOAB</td><td>1,000</td></tr>
+<tr><td>TIBC</td><td>800</td></tr>
+<tr><td>TORCH</td><td>8,000</td></tr>
+<tr><td>TROPONIN-I</td><td>1,000</td></tr>
+<tr><td>TSH</td><td>800</td></tr>
+<tr><td>UREA</td><td>300</td></tr>
+<tr><td>UREA , CREATININE</td><td>600</td></tr>
+<tr><td>URIC ACID</td><td>350</td></tr>
+<tr><td>URINE C/S</td><td>625</td></tr>
+<tr><td>USG ANOMALY SCAN</td><td>2,500</td></tr>
+<tr><td>USG ANOMALY SCAN WITH 4D</td><td>3,000</td></tr>
+<tr><td>USG BIOPHYSICAL PROFILE</td><td>1,500</td></tr>
+<tr><td>USG BIOPHYSICAL PROFILE WITH 4D</td><td>2,200</td></tr>
+<tr><td>"USG BIOPHYSICAL PROFILE WITH COLOR DOPLER"</td><td>2,500</td></tr>
+<tr><td>USG BREAST BOTH & AXILLA</td><td>2,000</td></tr>
+<tr><td>USG BREAST BOTH 4D</td><td>2,000</td></tr>
+<tr><td>USG BREAST LT & AXILLA</td><td>1,400</td></tr>
+<tr><td>USG ELBOW JOINT (Rt.)</td><td>2,000</td></tr>
+<tr><td>USG FOR FOLLICULOMETRY</td><td>1,800</td></tr>
+<tr><td>USG H.R PREGNANCY 4D</td><td>1,800</td></tr>
+<tr><td>USG HBS</td><td>1,500</td></tr>
+<tr><td>USG HBS 4D</td><td>1,550</td></tr>
+<tr><td>USG HBS+KUB 4D</td><td>2,000</td></tr>
+<tr><td>USG HBS+KUB+MCC+PVR & Uterus Ad.</td><td>1,500</td></tr>
+<tr><td>USG HIP JOINTS</td><td>1,550</td></tr>
+<tr><td>USG INGUINO SCROTAL REGION</td><td>2,000</td></tr>
+<tr><td>USG KNEE</td><td>2,000</td></tr>
+<tr><td>USG Knee Joint (Singel) (IMIC)</td><td>2,800</td></tr>
+<tr><td>USG KUB</td><td>1,200</td></tr>
+<tr><td>USG KUB & LOWER ABDOMEN</td><td>1,500</td></tr>
+<tr><td>USG KUB 4D</td><td>1,550</td></tr>
+<tr><td>USG KUB+LOWER ABDOMEN</td><td>1,500</td></tr>
+<tr><td>USG LOWER ABDOMEN</td><td>1,200</td></tr>
+<tr><td>USG LOWER ABDOMEN 4D</td><td>1,550</td></tr>
+<tr><td>USG Musculoskeletal</td><td>2,600</td></tr>
+<tr><td>USG of Swelling Single (IMIC)</td><td>2,800</td></tr>
+<tr><td>USG PENIS</td><td>1,500</td></tr>
+<tr><td>USG PREG. PROFILE 2D</td><td>1,200</td></tr>
+<tr><td>USG PREG PROFILE 4D</td><td>1,800</td></tr>
+<tr><td>USG PREGNANCY PROFILE</td><td>1,200</td></tr>
+<tr><td>USG PROSTATE</td><td>1,200</td></tr>
+<tr><td>USG SCROTUM</td><td>1,800</td></tr>
+<tr><td>USG SHOULDER JOINT</td><td>2,000</td></tr>
+<tr><td>USG TESTIES 4D</td><td>2,000</td></tr>
+<tr><td>USG THYROID GLAND</td><td>1,500</td></tr>
+<tr><td>USG THYROID GLAND 4D</td><td>1,800</td></tr>
+<tr><td>USG TVS (PELVIS)</td><td>1,800</td></tr>
+<tr><td>USG TVS (PELVIS) 4D</td><td>2,000</td></tr>
+<tr><td>USG UPPER ABDOMEN 4D</td><td>2,000</td></tr>
+<tr><td>USG WHOLE ABDOMEN</td><td>1,800</td></tr>
+<tr><td>USG WHOLE ABDOMEN 2D</td><td>1,800</td></tr>
+<tr><td>USG WHOLE ABDOMEN 4D</td><td>1,800</td></tr>
+<tr><td>USG WHOLE ABDOMEN PVR 4D</td><td>1,800</td></tr>
+<tr><td>USG WHOLE ABDOMEN WITH PELVIS</td><td>1,800</td></tr>
+<tr><td>USG Whole Abdomen with Pre.Profile 2D</td><td>1,800</td></tr>
+<tr><td>USG WHOLE ABDOMEN WITH PVR</td><td>1,800</td></tr>
+<tr><td>VDRL</td><td>500</td></tr>
+<tr><td>VIDEO ENDOSCOPY</td><td>2,000</td></tr>
+<tr><td>VIDEO ENDOSCOPY UPPER GIT</td><td>2,000</td></tr>
+<tr><td>VIDEO LARYNGOSCOPY</td><td>1,600</td></tr>
+<tr><td>VITAMIN B12</td><td>2,100</td></tr>
+<tr><td>VITAMIN D (25-OH)</td><td>3,000</td></tr>
+<tr><td>WIDAL TEST</td><td>450</td></tr>
+<tr><td>XD DENTAL OPG DIGITAL</td><td>400</td></tr>
+<tr><td>XD SINGLE TOOTH</td><td>150</td></tr>
+<tr><td>XR ANKLE BOTH B/V</td><td>900</td></tr>
+<tr><td>XR ARM LEFT B/V DIGITAL</td><td>600</td></tr>
+<tr><td>XR B/ENEMA D/CON</td><td>1,800</td></tr>
+<tr><td>XR B_FOLLOW THRO</td><td>1,800</td></tr>
+<tr><td>XR BA-ENEMA</td><td>1,400</td></tr>
+<tr><td>XR BA-SWALLOW DIGITAL</td><td>1,400</td></tr>
+<tr><td>XR B-MEAL F/THRO.</td><td>1,800</td></tr>
+<tr><td>XR C/SPINE AP DIGITAL</td><td>450</td></tr>
+<tr><td>XR C/SPINE B/V DIGITAL</td><td>800</td></tr>
+<tr><td>XR CHEST AP VIEW DIGITAL</td><td>450</td></tr>
+<tr><td>XR CHEST B/V DIGITAL</td><td>900</td></tr>
+<tr><td>XR D.SPINE BN DIGITAL</td><td>800</td></tr>
+<tr><td>XR D/L SPINE LATERAL</td><td>450</td></tr>
+<tr><td>XR DORSAL SPINE BN DIGITAL</td><td>800</td></tr>
+<tr><td>XR ELBOW JT LT B/V DIGITAL</td><td>450</td></tr>
+<tr><td>XR ELBOW JT RT BN DIGITAL</td><td>450</td></tr>
+<tr><td>XR ELBOW RIGHT BN</td><td>450</td></tr>
+<tr><td>XR FISTOLOGRAM</td><td>1,800</td></tr>
+<tr><td>XR FOOT BOTH DIGITAL BN</td><td>900</td></tr>
+<tr><td>XR FOOT LEFT BN DIGITAL</td><td>450</td></tr>
+<tr><td>XR FOOT WITH ANKLE JOINT (LT.)</td><td>900</td></tr>
+<tr><td>XR FORE ARM A/P RT DIGITAL</td><td>450</td></tr>
+<tr><td>XR FOREARM (BOTH) BN DIGITAL</td><td>900</td></tr>
+<tr><td>XR HAND (BOTH) BN DIGITAL</td><td>900</td></tr>
+<tr><td>XR HAND A/P DIGITAL</td><td>450</td></tr>
+<tr><td>XR HAND LEFT B/V DIGITAL</td><td>450</td></tr>
+<tr><td>XR HAND RIGHT B/V DIGITAL</td><td>450</td></tr>
+<tr><td>XR HEAD OF THE FEAMURE</td><td>450</td></tr>
+<tr><td>XR HIP JOINT WITH FEMUR</td><td>600</td></tr>
+<tr><td>XR HIP JT RIGHT BN DIGITAL</td><td>900</td></tr>
+<tr><td>XR HIP JT. RIGHT LETERAL</td><td>450</td></tr>
+<tr><td>XR HUMERAS LEFT BN</td><td>600</td></tr>
+<tr><td>XR HUMERUS RIGHT B/V DIGITAL</td><td>600</td></tr>
+<tr><td>XR HYSTARO-CONTRAST</td><td>790</td></tr>
+<tr><td>XR HYSTAROSULPHINGOGRAM</td><td>1,800</td></tr>
+<tr><td>XR INT.AUD.MEATUS LT</td><td>450</td></tr>
+<tr><td>XR INT.AUD.MEATUS LT DIGITAL</td><td>450</td></tr>
+<tr><td>XR IVU</td><td>2,400</td></tr>
+<tr><td>XR KNEE BOTH B/V</td><td>900</td></tr>
+<tr><td>XR KNEE JT. LT BN</td><td>450</td></tr>
+<tr><td>XR KNEE JT. LEFT DIGITAL</td><td>450</td></tr>
+<tr><td>XR KNEE JT. SKYLINE BN</td><td>950</td></tr>
+<tr><td>XR KNEE RT.BN (STANDING)</td><td>450</td></tr>
+<tr><td>XR KUB BOTH VIEW DIGITAL</td><td>1,100</td></tr>
+<tr><td>XR KUB DIGITAL</td><td>600</td></tr>
+<tr><td>XR L/S SPINE AP DIGITAL</td><td>450</td></tr>
+<tr><td>XR L/S SPINE B/V DIGITAL</td><td>800</td></tr>
+<tr><td>XR L/S SPINE LN DIGITAL</td><td>450</td></tr>
+<tr><td>XR L/S SPINE LAT DIGITAL</td><td>450</td></tr>
+<tr><td>XR LEG (BOTH) B/V DIGITAL</td><td>1,200</td></tr>
+<tr><td>XR LEG (CHILD) DIGITAL</td><td>450</td></tr>
+<tr><td>XR LEG A/P DIGITAL</td><td>550</td></tr>
+<tr><td>XR LEG LEFT BN DIGITAL</td><td>600</td></tr>
+<tr><td>XR LEG WITH ANKLE</td><td>550</td></tr>
+<tr><td>XR LOOPGRAM</td><td>1,800</td></tr>
+<tr><td>XR LUMBER SPINE B/V DIGITAL</td><td>800</td></tr>
+<tr><td>XR MAMMO-BOTH BREAST</td><td>2,000</td></tr>
+<tr><td>XR MAMMO-LEFT BREAST</td><td>1,000</td></tr>
+<tr><td>XR MAMMO-RIGHT BREAST</td><td>1,000</td></tr>
+<tr><td>XR MANDIBLE A/P VIEW DIGITAL</td><td>450</td></tr>
+<tr><td>XR MANDIBLE B/V DIGITAL</td><td>450</td></tr>
+<tr><td>XR MAXILA DIGITAL</td><td>450</td></tr>
+<tr><td>XR MCU</td><td>1,800</td></tr>
+<tr><td>XR NECK B/V DIGITAL</td><td>800</td></tr>
+<tr><td>XR ORBIT A/P VIEW DIGITAL</td><td>450</td></tr>
+<tr><td>XR ORBIT B/V DIGITAL</td><td>900</td></tr>
+<tr><td>XR PELVIS B/V DIGITAL</td><td>900</td></tr>
+<tr><td>XR PNS BN DIGITAL</td><td>900</td></tr>
+<tr><td>XR RGU & MCU DIGITAL</td><td>1,800</td></tr>
+<tr><td>XR SHOULDER B/V RT DIGITAL</td><td>900</td></tr>
+<tr><td>XR SI.JOINT B/V DIGITAL</td><td>900</td></tr>
+<tr><td>XR SKULL B/V DIGITAL</td><td>900</td></tr>
+<tr><td>XR SKULL LN DIGITAL</td><td>450</td></tr>
+<tr><td>XR WRIST JT LEFT B/V</td><td>450</td></tr>
+
+
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  myTable.style.display = "table";
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+        
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
