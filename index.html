@@ -51,27 +51,9 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 <h1>Daily Report</h1>
 
 <div class="grid">
-
 <div id="tReport"></div>
-
-<div class="card"><h2 id="yDate">Yeastarday Report</h2>
-<a target="_blank" id='ymri' href="">MRI List</a>
-<a target="_blank" id='yct' href="">CT List</a>
-<a target="_blank" id='yCorp' href="">Corporate List</a>
-<a target="_blank" id='yTest' href="">Test Count</a>
-<a target="_blank" id='yInSell' href="">Inhouse Sell</a>
-<a target="_blank" id='yPharSell' href="">Pharmacy Sell</a>
-</div>
-
-<div class="card"><h2 id="yyDate">YYeastarday Report</h2>
-<a target="_blank" id='yymri' href="">MRI List</a>
-<a target="_blank" id='yyct' href="">CT List</a>
-<a target="_blank" id='yyCorp' href="">Corporate List</a>
-<a target="_blank" id='yyTest' href="">Test Count</a>
-<a target="_blank" id='yyInSell' href="">Inhouse Sell</a>
-<a target="_blank" id='yyPharSell' href="">Pharmacy Sell</a>
-</div>
-
+<div id="yReport"></div>
+<div id="yyReport"></div>
 </div>
 
 <h1>Monthly Report</h1>
@@ -95,16 +77,13 @@ var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 var d = new Date(); d.setDate(d.getDate());
 var tDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
 
-
 // Yeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 1);
 var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('#yDate').innerText = yDay + ' Report';
 
 // YYeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 2);
 var yyDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('#yyDate').innerText = yyDay + ' Report';
 
 // Past Month Name Header
 var d = new Date(); d.setMonth(d.getMonth()-1);
@@ -168,6 +147,8 @@ function dailyReport(id,day,today,todayMMM) { document.getElementById(id).innerH
 }
 
 dailyReport('tReport',tDay,getTodayDate(),getTodayDateMMM());
+dailyReport('yReport',yDay,getYesterdaysDate(),getYesterdaysDateMMM());
+dailyReport('yyReport',yyDay,getYYesterdaysDate(),getYYesterdaysDateMMM());
 
 
 // Today Report
