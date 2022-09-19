@@ -77,21 +77,26 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </div>
 
 <script>
-function getYesterdaysDate() { var date = new Date(); date.setDate(date.getDate()-1);
+function getYesterdaysDate() {
+var date = new Date(); date.setDate(date.getDate()-1);
 return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate(); }
-function startLastMonth() { var date = new Date(); date.setDate(0);
+function startLastMonth() {
+var date = new Date(); date.setDate(0);
 return  date.getFullYear() + '-' + (date.getMonth()+1) + '-1' }
-function endLastMonth() { var date = new Date(); date.setDate(0);
+function endLastMonth() {
+var date = new Date(); date.setDate(0);
 return  date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() }
-
-function getYesterdaysDateMMM() { var date = new Date();
+function getYesterdaysDateMMM() {
+var date = new Date();
 var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 date.setDate(date.getDate()-1);
 return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
-function startLastMonthMMM() { var date = new Date(); date.setDate(0);
+function startLastMonthMMM() {
+var date = new Date(); date.setDate(0);
 var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 return '1-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
-function endLastMonthMMM() { var date = new Date(); date.setDate(0);
+function endLastMonthMMM() {
+var date = new Date(); date.setDate(0);
 var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
 
