@@ -77,6 +77,8 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </div>
 
 <script>
+var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 function getYesterdaysDate() {
 var date = new Date(); date.setDate(date.getDate()-1);
 return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate(); }
@@ -87,20 +89,17 @@ function endLastMonth() {
 var date = new Date(); date.setDate(0);
 return  date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() }
 function getYesterdaysDateMMM() {
-var date = new Date();
-var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-date.setDate(date.getDate()-1);
+var date = new Date(); date.setDate(date.getDate()-1);
 return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
 function startLastMonthMMM() {
 var date = new Date(); date.setDate(0);
-var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 return '1-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
 function endLastMonthMMM() {
 var date = new Date(); date.setDate(0);
-var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
+function lastday(y,m){
+return  new Date(y, m -1, 0).getDate(); } // Past Month last date
 
-function lastday(y,m){ return  new Date(y, m -1, 0).getDate(); } // Past Month last date
 var date = new Date();
 var dd = String(date.getDate()).padStart(2, '0'); // Today Date
 var mm = String(date.getMonth() + 1).padStart(2, '0'); // This Month
@@ -122,7 +121,7 @@ var d = new Date(); d.setMonth(d.getMonth()-1);
 var yMonth = d.toLocaleString('default', { month: 'long' });
 document.querySelector('#yMonth').innerText = yMonth + ' Report';
 
-
+// Yesterday Report
 document.getElementById('ymri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
 document.getElementById('yct').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&departmentreporttype=testwisedetail&department=12&format=pdf'
 document.getElementById('yCorp').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&corporate=All&createdBy=All&type=detail&format=pdf'
@@ -130,6 +129,7 @@ document.getElementById('yInSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPO
 document.getElementById('yPharSell').href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+getYesterdaysDateMMM()+'&P_END_DT='+getYesterdaysDateMMM()+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'
 document.getElementById('yTest').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDateMMM()+'&endDate='+getYesterdaysDateMMM()+'&department=All&format=pdf'
 
+// Past Month Report
 document.getElementById('pmri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
 document.getElementById('pct').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&departmentreporttype=testwisedetail&department=12&format=pdf'
 document.getElementById('pDocSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=matrix&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&matrixreporttype=doctorvsdepartmentamount&format=pdf'
@@ -139,7 +139,6 @@ document.getElementById('pPharSell').href = 'http://192.168.4.5:9002/reports/rws
 
 // Doctor Appoinment
 doctor.onchange = function() { viewDoc.href = 'http://210.4.73.10:52/appointments/apps/appointment/'+doctor.value; }
-
 function changeValue(){ var x = dipartment.value;
 if(x=='Gynae'){ document.getElementById('doctor').innerHTML=
 '<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option><option value="1523/13105">Assoc. Prof. Dr. Sarwat Jahan Zubyra</option><option value="1525/13106">Dr. Umme Kulsum</option><option value="1526/13107">Asst. Prof. Dr. Fazilatunnesa Naznin</option><option value="3044/13896">Dr. Chalontika Rani</option><option value="3454/14389">Dr. Farjana Islam Shampa</option><option value="3521/14471">Dr. Farjana Sharmin Mitul</option><option value="3591/14565">Dr. Shirin Hossain</option>'; }
