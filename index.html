@@ -16,7 +16,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 </style>
 <title>IBN SINA</title></head><body>
 
-<h1>Bookmark</h1>
+<h1 id='kk'>Bookmark</h1>
 <div class="grid">
 
 <div class="card"><h2>Doctor Appoinment</h2>
@@ -52,14 +52,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 
 <div class="grid">
 
-<div class="card"><h2 id="tDate">Today Report</h2>
-<a target="_blank" id='tmri' href="">MRI List</a>
-<a target="_blank" id='tct' href="">CT List</a>
-<a target="_blank" id='tCorp' href="">Corporate List</a>
-<a target="_blank" id='tTest' href="">Test Count</a>
-<a target="_blank" id='tInSell' href="">Inhouse Sell</a>
-<a target="_blank" id='tPharSell' href="">Pharmacy Sell</a>
-</div>
+<div id="tReport"></div>
 
 <div class="card"><h2 id="yDate">Yeastarday Report</h2>
 <a target="_blank" id='ymri' href="">MRI List</a>
@@ -101,7 +94,7 @@ var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 // Today Header
 var d = new Date(); d.setDate(d.getDate());
 var tDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('#tDate').innerText = tDay + ' Report';
+
 
 // Yeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 1);
@@ -168,6 +161,14 @@ var m1 = String(date.getMonth() + 0).padStart(2, '0'); // Past Month
 var y1 = date.getFullYear() - 1; // Past Year
 var md1 = new Date(yyyy, mm -1, 0).getDate(); // Past Month Last Date
 today = mm + '/' + dd + '/' + yyyy;
+
+
+function dailyReport(id,day,today,todayMMM) { document.getElementById(id).innerHTML=
+'<div class="card"><h2>'+day+'  Report</h2><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=53&format=pdf">MRI List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=12&format=pdf">CT List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&corporate=All&createdBy=All&type=detail&format=pdf">Corporate List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+todayMMM+'&endDate='+todayMMM+'&department=All&format=pdf">Test Count</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf">Inhouse Sell</a><a target="_blank" href="http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+todayMMM+'&P_END_DT='+todayMMM+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188">Pharmacy Sell</a></div>'
+}
+
+dailyReport('tReport',tDay,getTodayDate(),getTodayDateMMM());
+
 
 // Today Report
 document.getElementById('tmri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getTodayDate()+'&endDate='+getTodayDate()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
