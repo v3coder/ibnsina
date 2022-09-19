@@ -51,6 +51,7 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 <h1>Daily Report</h1>
 
 <div class="grid">
+
 <div class="card"><h2 id="yDate">Yeastarday Report</h2>
 <a target="_blank" id='ymri' href="">MRI List</a>
 <a target="_blank" id='yct' href="">CT List</a>
@@ -59,6 +60,16 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 <a target="_blank" id='yInSell' href="">Inhouse Sell</a>
 <a target="_blank" id='yPharSell' href="">Pharmacy Sell</a>
 </div>
+
+<div class="card"><h2 id="yyDate">YYeastarday Report</h2>
+<a target="_blank" id='yymri' href="">MRI List</a>
+<a target="_blank" id='yyct' href="">CT List</a>
+<a target="_blank" id='yyCorp' href="">Corporate List</a>
+<a target="_blank" id='yyTest' href="">Test Count</a>
+<a target="_blank" id='yyInSell' href="">Inhouse Sell</a>
+<a target="_blank" id='yyPharSell' href="">Pharmacy Sell</a>
+</div>
+
 </div>
 
 <h1>Monthly Report</h1>
@@ -78,12 +89,35 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 <script>
 var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// Yeastarday Dayname
+// Yeastarday Dayname Header
+var d = new Date(); d.setDate(d.getDate() - 1);
+var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
+document.querySelector('#yDate').innerText = yDay + ' Report';
+var d = new Date(); d.setDate(d.getDate() - 2);
+
+// YYeastarday Dayname Header
+var yyDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
+document.querySelector('#yyDate').innerText = yyDay + ' Report';
+
+// Past Month Name Header
+var d = new Date(); d.setMonth(d.getMonth()-1);
+var yMonth = d.toLocaleString('default', { month: 'long' });
+document.querySelector('#yMonth').innerText = yMonth + ' Report';
+
+// Yeastarday Date
 function getYesterdaysDate() {
 var date = new Date(); date.setDate(date.getDate()-1);
 return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate(); }
 function getYesterdaysDateMMM() {
 var date = new Date(); date.setDate(date.getDate()-1);
+return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
+
+// YYeastarday Date
+function getYYesterdaysDate() {
+var date = new Date(); date.setDate(date.getDate()-2);
+return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate(); }
+function getYYesterdaysDateMMM() {
+var date = new Date(); date.setDate(date.getDate()-2);
 return date.getDate() + '-' + nameMonth[(date.getMonth())] + '-' + date.getFullYear().toString().substr(-2)}
 
 // Past Month Name
@@ -113,23 +147,21 @@ var y1 = date.getFullYear() - 1; // Past Year
 var md1 = new Date(yyyy, mm -1, 0).getDate(); // Past Month Last Date
 today = mm + '/' + dd + '/' + yyyy;
 
-// Yeastarday Dayname
-var d = new Date(); d.setDate(d.getDate() - 1);
-var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('#yDate').innerText = yDay + ' Report';
-
-// Past Month Name
-var d = new Date(); d.setMonth(d.getMonth()-1);
-var yMonth = d.toLocaleString('default', { month: 'long' });
-document.querySelector('#yMonth').innerText = yMonth + ' Report';
-
 // Yesterday Report
 document.getElementById('ymri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
 document.getElementById('yct').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&departmentreporttype=testwisedetail&department=12&format=pdf'
 document.getElementById('yCorp').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&corporate=All&createdBy=All&type=detail&format=pdf'
+document.getElementById('yTest').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDateMMM()+'&endDate='+getYesterdaysDateMMM()+'&department=All&format=pdf'
 document.getElementById('yInSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDate()+'&endDate='+getYesterdaysDate()+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf'
 document.getElementById('yPharSell').href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+getYesterdaysDateMMM()+'&P_END_DT='+getYesterdaysDateMMM()+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'
-document.getElementById('yTest').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYesterdaysDateMMM()+'&endDate='+getYesterdaysDateMMM()+'&department=All&format=pdf'
+
+// YYesterday Report
+document.getElementById('yymri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYYesterdaysDate()+'&endDate='+getYYesterdaysDate()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
+document.getElementById('yyct').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYYesterdaysDate()+'&endDate='+getYYesterdaysDate()+'&departmentreporttype=testwisedetail&department=12&format=pdf'
+document.getElementById('yyCorp').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYYesterdaysDate()+'&endDate='+getYYesterdaysDate()+'&corporate=All&createdBy=All&type=detail&format=pdf'
+document.getElementById('yyTest').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYYesterdaysDateMMM()+'&endDate='+getYYesterdaysDateMMM()+'&department=All&format=pdf'
+document.getElementById('yyInSell').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+getYYesterdaysDate()+'&endDate='+getYYesterdaysDate()+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf'
+document.getElementById('yyPharSell').href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+getYYesterdaysDateMMM()+'&P_END_DT='+getYYesterdaysDateMMM()+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'
 
 // Past Month Report
 document.getElementById('pmri').href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+startLastMonth()+'&endDate='+endLastMonth()+'&departmentreporttype=testwisedetail&department=53&format=pdf'
