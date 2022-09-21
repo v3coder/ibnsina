@@ -13,6 +13,13 @@ input[type="submit"] { background-color: white; color: #0969e1; padding: 10px; b
 input[type="text"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 select#dipartment, select#doctor { background-color: white; color: #777; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 .button {background-color: #eeeef5 !important; border: none !important; text-align: center}
+#tReport, #yyReport {display: none}
+
+.tab { overflow: hidden; background-color: #eee; text-align: center}
+.tab button {background-color: inherit; border: none; outline: none; cursor: pointer; padding: 14px 10px; transition: 0.3s; }
+.tab button:hover { background-color: #ddd;}
+.tab button.active { background-color: #f8f8f8;}
+.dcontent { display: none;}
 </style>
 <title>IBN SINA</title></head><body>
 
@@ -48,49 +55,97 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 
 </div>
 
-<h1>Daily Report</h1>
-
+<h1>Generate Report</h1>
 <div class="grid">
-<div id="tReport"></div>
-<div id="yReport"></div>
-<div id="yyReport"></div>
+
+<div class="card">
+<div class="tab">
+  <button class="dLinks" onclick="openDay(event, 'yyReport')">YYesterday</button>
+  <button class="dLinks" id="defaultDay" onclick="openDay(event, 'yReport')">Yesterday</button>
+  <button class="dLinks" onclick="openDay(event, 'tReport')">Today</button>
+</div>
+<div id="tReport" class="dcontent"></div>
+<div id="yReport" class="dcontent"></div>
+<div id="yyReport" class="dcontent"></div>
 </div>
 
-<h1>Monthly Report</h1>
-
-<div class="grid">
-<div id="tmReport"></div>
-<div id="ymReport"></div>
-<div id="yymReport"></div>
+<div class="card">
+<div class="tab">
+  <button class="mLinks" onclick="openMonth(event, 'yymReport')">YYMonth</button>
+  <button class="mLinks" id="defaultMonth" onclick="openMonth(event, 'ymReport')">YMonth</button>
+  <button class="mLinks" onclick="openMonth(event, 'tmReport')">TMonth</button>
 </div>
+<div id="tmReport" class="mcontent"></div>
+<div id="ymReport" class="mcontent"></div>
+<div id="yymReport" class="mcontent"></div>
+</div>
+
+</div>
+
 
 <script>
+function openDay(evt, cityName) {
+  var i, tabcontent, tLinks;
+  tabcontent = document.getElementsByClassName("dcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tLinks = document.getElementsByClassName("dLinks");
+  for (i = 0; i < tLinks.length; i++) {
+    tLinks[i].className = tLinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function openMonth(evt, cityName) {
+  var i, tabcontent, tLinks;
+  tabcontent = document.getElementsByClassName("mcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tLinks = document.getElementsByClassName("mLinks");
+  for (i = 0; i < tLinks.length; i++) {
+    tLinks[i].className = tLinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultDay").click();
+document.getElementById("defaultMonth").click();
+
 var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // Today Header
 var d = new Date(); d.setDate(d.getDate());
 var tDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
+document.querySelector('.dLinks:nth-child(3)').innerText = tDay;
 
 // Yeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 1);
 var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
+document.querySelector('.dLinks:nth-child(2)').innerText = yDay;
 
 // YYeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 2);
 var yyDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-
+document.querySelector('.dLinks:nth-child(1)').innerText = yyDay;
 
 // This Month Name Header
 var d = new Date(); d.setMonth(d.getMonth());
 var tMonth = d.toLocaleString('default', { month: 'long' });
+document.querySelector('.mLinks:nth-child(3)').innerText = tMonth;
 
 // Past Month Name Header
 var d = new Date(); d.setMonth(d.getMonth()-1);
 var yMonth = d.toLocaleString('default', { month: 'long' });
+document.querySelector('.mLinks:nth-child(2)').innerText = yMonth;
 
 // Past Past Month Name Header
 var d = new Date(); d.setMonth(d.getMonth()-2);
 var yyMonth = d.toLocaleString('default', { month: 'long' });
+document.querySelector('.mLinks:nth-child(1)').innerText = yyMonth;
 
 
 // Today Date
@@ -174,14 +229,14 @@ today = mm + '/' + dd + '/' + yyyy;
 
 //Daily Report
 function dailyReport(id,day,today,todayMMM) { document.getElementById(id).innerHTML=
-'<div class="card"><h2>'+day+'  Report</h2><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=53&format=pdf">MRI List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=12&format=pdf">CT List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&corporate=All&createdBy=All&type=detail&format=pdf">Corporate List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+todayMMM+'&endDate='+todayMMM+'&department=All&format=pdf">Test Count</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf">Inhouse Sell</a><a target="_blank" href="http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+todayMMM+'&P_END_DT='+todayMMM+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188">Pharmacy Sell</a></div>'}
+'<a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=53&format=pdf">MRI List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&departmentreporttype=testwisedetail&department=12&format=pdf">CT List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&corporate=All&createdBy=All&type=detail&format=pdf">Corporate List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+todayMMM+'&endDate='+todayMMM+'&department=All&format=pdf">Test Count</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+today+'&endDate='+today+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf">Inhouse Sell</a><a target="_blank" href="http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+todayMMM+'&P_END_DT='+todayMMM+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188">Pharmacy Sell</a>'}
 dailyReport('tReport',tDay,getTodayDate(),getTodayDateMMM());
 dailyReport('yReport',yDay,getYesterdaysDate(),getYesterdaysDateMMM());
 dailyReport('yyReport',yyDay,getYYesterdaysDate(),getYYesterdaysDateMMM());
 
 // Monthly Report
 function monthlyReport(id,month,mstart,mend,mstartMMM,mendMMM) { document.getElementById(id).innerHTML=
-'<div class="card"><h2>'+month+' Report</h2><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&departmentreporttype=testwisedetail&department=53&format=pdf">MRI List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&departmentreporttype=testwisedetail&department=12&format=pdf">CT List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&corporate=All&createdBy=All&type=detail&format=pdf">Corporate List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=matrix&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&matrixreporttype=doctorvsdepartmentamount&format=pdf">Indoor Doctor Sell</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=refdoctorperformance&type=&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&doctor=All&format=pdf">Outdoor Doctor Sell</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf">Inhouse Sell</a><a target="_blank" href="http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+mstartMMM+'&P_END_DT='+mendMMM+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188">Pharmacy Sell</a></div>'}
+'<a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&departmentreporttype=testwisedetail&department=53&format=pdf">MRI List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&departmentreporttype=testwisedetail&department=12&format=pdf">CT List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&corporate=All&createdBy=All&type=detail&format=pdf">Corporate List</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=matrix&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&matrixreporttype=doctorvsdepartmentamount&format=pdf">Indoor Doctor Sell</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=refdoctorperformance&type=&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&doctor=All&format=pdf">Outdoor Doctor Sell</a><a target="_blank" href="http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+mstart+'&endDate='+mend+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format=pdf">Inhouse Sell</a><a target="_blank" href="http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+mstartMMM+'&P_END_DT='+mendMMM+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188">Pharmacy Sell</a>'}
 monthlyReport('tmReport',tMonth,MonthStart(),MonthEnd(),MonthStartMMM(),MonthEndMMM());
 monthlyReport('ymReport',yMonth,yMonthStart(),yMonthEnd(),yMonthStartMMM(),yMonthEndMMM());
 monthlyReport('yymReport',yyMonth,yyMonthStart(),yyMonthEnd(),yyMonthStartMMM(),yyMonthEndMMM());
