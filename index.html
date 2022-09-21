@@ -119,33 +119,33 @@ var nameMonth=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 
 // Today Header
 var d = new Date(); d.setDate(d.getDate());
-var tDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('.dLinks:nth-child(3)').innerText = tDay;
+var tDay = d.toLocaleDateString("en-EN", { weekday: 'short' }); 
+document.querySelector('.dLinks:nth-child(3)').innerText = tDay.toUpperCase();
 
 // Yeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 1);
-var yDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('.dLinks:nth-child(2)').innerText = yDay;
+var yDay = d.toLocaleDateString("en-EN", { weekday: 'short' }); 
+document.querySelector('.dLinks:nth-child(2)').innerText = yDay.toUpperCase();
 
 // YYeastarday Header
 var d = new Date(); d.setDate(d.getDate() - 2);
-var yyDay = d.toLocaleDateString("en-EN", { weekday: 'long' }); 
-document.querySelector('.dLinks:nth-child(1)').innerText = yyDay;
+var yyDay = d.toLocaleDateString("en-EN", { weekday: 'short' }); 
+document.querySelector('.dLinks:nth-child(1)').innerText = yyDay.toUpperCase();
 
 // This Month Name Header
 var d = new Date(); d.setMonth(d.getMonth());
-var tMonth = d.toLocaleString('default', { month: 'long' });
-document.querySelector('.mLinks:nth-child(3)').innerText = tMonth;
+var tMonth = d.toLocaleString('default', { month: 'short' });
+document.querySelector('.mLinks:nth-child(3)').innerText = tMonth.toUpperCase();
 
 // Past Month Name Header
 var d = new Date(); d.setMonth(d.getMonth()-1);
-var yMonth = d.toLocaleString('default', { month: 'long' });
-document.querySelector('.mLinks:nth-child(2)').innerText = yMonth;
+var yMonth = d.toLocaleString('default', { month: 'short' });
+document.querySelector('.mLinks:nth-child(2)').innerText = yMonth.toUpperCase();
 
 // Past Past Month Name Header
 var d = new Date(); d.setMonth(d.getMonth()-2);
-var yyMonth = d.toLocaleString('default', { month: 'long' });
-document.querySelector('.mLinks:nth-child(1)').innerText = yyMonth;
+var yyMonth = d.toLocaleString('default', { month: 'short' });
+document.querySelector('.mLinks:nth-child(1)').innerText = yyMonth.toUpperCase();
 
 
 // Today Date
