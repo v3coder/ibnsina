@@ -60,9 +60,9 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 
 <div class="card">
 <div class="tab">
-  <button class="dLinks" onclick="openDay(event, 'yyReport')">YYesterday</button>
-  <button class="dLinks" id="defaultDay" onclick="openDay(event, 'yReport')">Yesterday</button>
-  <button class="dLinks" onclick="openDay(event, 'tReport')">Today</button>
+  <button class="dLinks" onclick="tabs(event, 'dLinks', 'yyReport','dcontent')">YYesterday</button>
+  <button class="dLinks" id="defaultDay" onclick="tabs(event, 'dLinks', 'yReport','dcontent')">Yesterday</button>
+  <button class="dLinks" onclick="tabs(event, 'dLinks', 'tReport','dcontent')">Today</button>
 </div>
 <div id="tReport" class="dcontent"></div>
 <div id="yReport" class="dcontent"></div>
@@ -71,9 +71,9 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 
 <div class="card">
 <div class="tab">
-  <button class="mLinks" onclick="openMonth(event, 'yymReport')">YYMonth</button>
-  <button class="mLinks" id="defaultMonth" onclick="openMonth(event, 'ymReport')">YMonth</button>
-  <button class="mLinks" onclick="openMonth(event, 'tmReport')">TMonth</button>
+  <button class="mLinks" onclick="tabs(event, 'mLinks', 'yymReport','mcontent')">YYMonth</button>
+  <button class="mLinks" id="defaultMonth" onclick="tabs(event, 'mLinks', 'ymReport','mcontent')">YMonth</button>
+  <button class="mLinks" onclick="tabs(event, 'mLinks', 'tmReport','mcontent')">TMonth</button>
 </div>
 <div id="tmReport" class="mcontent"></div>
 <div id="ymReport" class="mcontent"></div>
@@ -85,18 +85,12 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 
 <script>
 // Tabs
-function openDay(evt, cityName) {
-var i, tabcontent, tLinks; tabcontent = document.getElementsByClassName("dcontent");
+function tabs(evt, tabClass, contentID, contentClass) {
+var i, tabcontent, tLinks; tabcontent = document.getElementsByClassName(contentClass);
 for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none";}
-tLinks = document.getElementsByClassName("dLinks");
+tLinks = document.getElementsByClassName(tabClass);
 for (i = 0; i < tLinks.length; i++) { tLinks[i].className = tLinks[i].className.replace(" active", ""); }
-document.getElementById(cityName).style.display = "block"; evt.currentTarget.className += " active"; }
-function openMonth(evt, cityName) {
-var i, tabcontent, tLinks; tabcontent = document.getElementsByClassName("mcontent");
-for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none";}
-tLinks = document.getElementsByClassName("mLinks");
-for (i = 0; i < tLinks.length; i++) { tLinks[i].className = tLinks[i].className.replace(" active", "") }
-document.getElementById(cityName).style.display = "block"; evt.currentTarget.className += " active"; }
+document.getElementById(contentID).style.display = "block"; evt.currentTarget.className += " active"; }
 document.getElementById("defaultDay").click();
 document.getElementById("defaultMonth").click();
 
