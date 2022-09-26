@@ -11,7 +11,7 @@ h1 { font-size: 20px; font-weight: 500; background: #cfe8fd; border-left: 5px so
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); grid-gap: 0px;}
 input[type="submit"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 input[type="text"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
-select#dipartment, select#doctor { background-color: white; color: #777; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
+select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-color: white; color: #777; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 .button {background-color: #eeeef5 !important; border: none !important; text-align: center}
 #tReport, #yyReport {display: none}
 
@@ -82,10 +82,34 @@ select#dipartment, select#doctor { background-color: white; color: #777; padding
 <div id="yymReport" class="mcontent"></div>
 </div>
 
+<div class="card"><h2>Custom Report</h2>
+
+<select id="custom">
+<option value="mriList">MRI List</option>
+<option value="ctList">CT List</option>
+<option value="corpList">Corporate List</option>
+<option value="tCount" selected>Test Count</option>
+<option value="inSell">Inhouse Sell</option>
+<option value="pharSell">Pharmacy Sell</option>
+<option value="inDocSell">Indoor Doctor Sell</option>
+<option value="outDocSell">Outdoor Doctor Sell</option>
+</select><br>
+Start Date: <input type="date" id="dStart"><br>
+End Date: <input type="date" id="dEnd"><br>
+<input type="submit" onclick="sOption()">
+</div>
+
+
 </div>
 
 
 <script>
+function sOption(){
+var dStart = document.getElementById("dStart").value;
+var dEnd = document.getElementById("dEnd").value;
+alert(dStart)
+}
+
 // Tabs
 function tabs(evt, tabClass, contentID, contentClass) {
 var i, tabcontent, tLinks; tabcontent = document.getElementsByClassName(contentClass);
