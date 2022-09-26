@@ -102,14 +102,17 @@ select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-col
 <div class="label">
 <input type="radio" name="imgsel" value="" checked="checked"/> PDF
 <input type="radio" name="imgsel" value=""/> Excel
-<input type="submit" onclick="sOption()">
+<input type="submit" class="button" onclick="sOption()">
 </div>
 </div>
 
 </div>
 
 <script>
-function sOption(){
+function sOption(){ var x = custom.value;
+if(x=='mriList'){ document.getElementById('doctor').innerHTML=
+'<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option><option value="1523/13105">Assoc. Prof. Dr. Sarwat Jahan Zubyra</option><option value="1525/13106">Dr. Umme Kulsum</option><option value="1526/13107">Asst. Prof. Dr. Fazilatunnesa Naznin</option><option value="3044/13896">Dr. Chalontika Rani</option><option value="3454/14389">Dr. Farjana Islam Shampa</option><option value="3521/14471">Dr. Farjana Sharmin Mitul</option><option value="3591/14565">Dr. Shirin Hossain</option>'; }
+
 var dStart = document.getElementById("dStart").value;
 var dEnd = document.getElementById("dEnd").value;
 alert(dStart);
