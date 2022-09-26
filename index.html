@@ -8,6 +8,7 @@ h1 { font-size: 20px; font-weight: 500; background: #cfe8fd; border-left: 5px so
 .card h2 {background: #f6f8fa; color: #333; margin: 0px 0px 10px 0px; padding: 10px 5px; font-weight: normal; border-bottom: 1px solid #d0d7de; text-align: center; font-size: 17px}
 .card a {background-color: whitesmoke; color: #0969e1; padding: 10px; cursor: pointer; position: relative; display: block; margin: 10px}
 .card a:hover {border-left: 3px solid cornflowerblue}
+.card .label { padding: 10px 0px 5px 10px; display: block; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); grid-gap: 0px;}
 input[type="submit"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
 input[type="text"] { background-color: white; color: #0969e1; padding: 10px; border: 1px solid #cdcdcd; margin: 10px; width: -webkit-fill-available }
@@ -94,20 +95,24 @@ select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-col
 <option value="inDocSell">Indoor Doctor Sell</option>
 <option value="outDocSell">Outdoor Doctor Sell</option>
 </select><br>
-Start Date: <input type="date" id="dStart"><br>
-End Date: <input type="date" id="dEnd"><br>
+<div class="label">Start Date:</div>
+<input type="date" id="dStart">
+<div class="label">End Date:</div>
+<input type="date" id="dEnd">
+<div class="label">
+<input type="radio" name="imgsel" value="" checked="checked"/> PDF
+<input type="radio" name="imgsel" value=""/> Excel
 <input type="submit" onclick="sOption()">
 </div>
-
-
 </div>
 
+</div>
 
 <script>
 function sOption(){
 var dStart = document.getElementById("dStart").value;
 var dEnd = document.getElementById("dEnd").value;
-alert(dStart)
+alert(dStart);
 }
 
 // Tabs
