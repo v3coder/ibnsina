@@ -100,9 +100,9 @@ select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-col
 <div class="label">End Date:</div>
 <input type="date" id="dEnd">
 <div class="label">
-<input type="radio" name="imgsel" value="" checked="checked"/> PDF
-<input type="radio" name="imgsel" value=""/> Excel
-<a id="customOpt" href="" target="_blank" class="button">Submit</a>
+<input type="radio" name="type" value="" checked="checked"/> PDF
+<input type="radio" name="type" value=""/> Excel
+<a id="customOpt" href="" target="_blank" class="button" onclick="sOption">Submit</a>
 </div>
 </div>
 
@@ -110,12 +110,17 @@ select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-col
 
 <script>
 function sOption(){ var x = custom.value;
-if(x=='mriList'){ document.getElementById('doctor').innerHTML=
-'<option>Select Doctor</option><option value="1505/13103">Prof Dr. Mahbuba Akter Banu</option><option value="1506/13104">Assoc. Prof. Dr. Abida Sultana</option><option value="1523/13105">Assoc. Prof. Dr. Sarwat Jahan Zubyra</option><option value="1525/13106">Dr. Umme Kulsum</option><option value="1526/13107">Asst. Prof. Dr. Fazilatunnesa Naznin</option><option value="3044/13896">Dr. Chalontika Rani</option><option value="3454/14389">Dr. Farjana Islam Shampa</option><option value="3521/14471">Dr. Farjana Sharmin Mitul</option><option value="3591/14565">Dr. Shirin Hossain</option>'; }
-
 var dStart = document.getElementById("dStart").value;
 var dEnd = document.getElementById("dEnd").value;
-alert(dStart);
+var type = document.querySelector('input[name="type"]:checked').value;
+if(x=='mriList'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&departmentreporttype=testwisedetail&department=53&format='+type}
+if(x=='ctList'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=department&createdBy=All&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&departmentreporttype=testwisedetail&department=12&format='+type }
+if(x=='corpList'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=corporate&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&corporate=All&createdBy=All&type=detail&format='+type}
+if(x=='tCount'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=departmentwisecollection&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&department=All&format='+type}
+if(x=='inSell'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=payment&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&createdBy=All&paymentreporttype=summaryday&refund=All&service=All&format='+type}
+if(x=='pharSell'){ customOpt.href = 'http://192.168.4.5:9002/reports/rwservlet?rep_key_kg&desformat=PDF&desname=FILE&destype=cache&report=/u01/source/Reports/PMR_M11_04&P_COMPANY_NO=1&P_STORE=153&G_EMP_NO=E200201000188&p_rpt_title=Pharmacy%20Collec.%20-%20Date%20Wise%20Summary&P_STR_DT='+dStart+'&P_END_DT='+dEnd+'&p_entered_by=&p_doc_no=ReportID/Code&p_builder=&p_user=E200201000188'}
+if(x=='inDocSell'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=matrix&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&matrixreporttype=doctorvsdepartmentamount&format='+type}
+if(x=='outDocSell'){ customOpt.href = 'http://192.168.4.5:9090/IBN_SINA_REPORT/generateReport.do?reportType=refdoctorperformance&type=&branchCode=T&branchName=IBN+SINA+DIAGNOSTIC+%26+CONSULTATION+CENTER%2C+KERANIGONJ&branchAddress=Maa+Plaza+%2C+Kadomtoli+Mor+%2C+Keraniganj+%2C+Dhaka-1310&startDate='+dStart+'&endDate='+dEnd+'&doctor=All&format='+type }
 }
 
 // Tabs
