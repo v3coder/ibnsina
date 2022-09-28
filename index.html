@@ -96,9 +96,9 @@ select#dipartment, select#doctor, select#custom, #dStart, #dEnd { background-col
 <option value="outDocSell">Outdoor Doctor Sell</option>
 </select><br>
 <div class="label">Start Date:</div>
-<input type="date" id="dStart">
+<input type="date" id="dStart" min="2019-01-01" max="2025-12-31" onkeydown="return false" />
 <div class="label">End Date:</div>
-<input type="date" id="dEnd">
+<input type="date" id="dEnd" min="2019-01-01" max="2025-12-31" onkeydown="return false" >
 <div class="label">
 <input type="radio" name="type" value="pdf" checked="checked"/> PDF
 <input type="radio" name="type" value="xls"/> Excel
