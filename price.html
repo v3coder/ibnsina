@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; }
+body { font: 10px Verdana, sans-serif; background-color: #f8f8f8; margin-bottom: 100px; }
+#myInput { width: 100%; padding: 12px 20px; border: 1px solid #ddd; margin-bottom: 12px; border-radius: 20px; }
+#myTable { border-collapse: collapse; width: 100%; border: 1px solid #ddd; display: none; }
+#myTable th, #myTable td { text-align: left; padding: 12px; }
+#myTable tr { border-bottom: 1px solid #ddd; cursor: pointer; }
+#myTable tr.header, #myTable tr:hover { background-color: #f1f1f1; }
+#summaryTableContainer { display: none; position: fixed; bottom: 0; width: 100%; background-color: #fff; border-top: 1px solid #ddd; padding: 10px; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); text-align: center; }
+.summaryItem { display: inline-block; margin: 5px; padding: 5px; background: #f1f1f1; border-radius: 20px; }
+#totalPriceContainer { text-align: center; margin: 5px; padding: 5px; }
+#totalPrice { font-weight: bold; }
+#placeholderMessage { text-align: center; padding: 50px; font-size: 24px; font-weight: normal; color: darkgray;}
+</style>
+</head>
+<body>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Tests" title="Type in a name">
+
+<div id="placeholderMessage">
+  <h3>made with love by <br>MEHEDI AL IMRAN</h3>
+</div>
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:45%;">Test</th>
+    <th style="width:30%;">Price</th>
+    <th style="width:25%;">After Discount</th>
+  </tr>
+</table>
+
+<div id="summaryTableContainer">
+  <div id="summaryTable"></div>
+  <div id="totalPriceContainer">Total: <span id="totalPrice">0</span></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  localStorage.removeItem('selectedTests');
+  document.getElementById('totalPrice').textContent = 0;
+});
+
+async function fetchTestData() {
+  const response = await fetch('https://v3coder.github.io/ibnsina/price-list.json');
+  return response.json();
+}
+
+async function myFunction() {
+  const input = document.getElementById('myInput').value.toLowerCase();
+  const table = document.getElementById('myTable');
+  const placeholderMessage = document.getElementById('placeholderMessage');
+  const data = await fetchTestData();
+
+  const filteredData = data.content.filter(test => test.name.toLowerCase().includes(input));
+ 
+  if (input.trim() === '') {
+    placeholderMessage.style.display = 'block';
+    table.style.display = 'none';
+    return;
+  } else {
+    placeholderMessage.style.display = 'none';
+  }
+
+  table.innerHTML = `
+    <tr class="header">
+      <th style="width:45%;">Test</th>
+      <th style="width:30%;">Price</th>
+      <th style="width:25%;">After Discount</th>
+    </tr>
+  `;
+ 
+  if (filteredData.length) {
+    filteredData.forEach(test => {
+      const row = table.insertRow();
+      const originalPrice = Math.floor(test.price);
+      const discountPercentage = parseFloat(test.discount_percentage);
+      const discountedPrice = Math.floor(originalPrice * (1 - discountPercentage / 100));
+     
+      row.insertCell(0).textContent = test.name;
+      row.insertCell(1).textContent = originalPrice;
+      row.insertCell(2).textContent = discountedPrice;
+     
+      row.onclick = () => addToSummary(test.name, discountedPrice);
+    });
+    table.style.display = 'table';
+  } else {
+    table.style.display = 'none';
+  }
+}
+
+function addToSummary(testName, price) {
+  const summaryTableContainer = document.getElementById('summaryTableContainer');
+  const summaryTable = document.getElementById('summaryTable');
+  const totalPriceElement = document.getElementById('totalPrice');
+  let totalPrice = parseInt(totalPriceElement.textContent);
+ 
+  const itemDiv = document.createElement('div');
+  itemDiv.className = 'summaryItem';
+  itemDiv.textContent = `${testName}: ${price}`;
+  summaryTable.appendChild(itemDiv);
+ 
+  totalPriceElement.textContent = totalPrice + price;
+
+  let tests = JSON.parse(localStorage.getItem('selectedTests')) || [];
+  tests.push({ name: testName, price });
+  localStorage.setItem('selectedTests', JSON.stringify(tests));
+
+  summaryTableContainer.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
