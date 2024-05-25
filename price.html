@@ -11,7 +11,7 @@ body { font: 10px Verdana, sans-serif; background-color: #f8f8f8; margin-bottom:
 #myTable tr { border-bottom: 1px solid #ddd; cursor: pointer; }
 #myTable tr.header, #myTable tr:hover { background-color: #f1f1f1; }
 #summaryTableContainer { display: none; position: fixed; bottom: 0; width: 100%; background-color: #fff; border-top: 1px solid #ddd; padding: 10px; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); text-align: center; }
-.summaryItem { display: inline-block; margin: 5px; padding: 5px; background: #f1f1f1; border-radius: 20px; }
+.summaryItem { display: inline-block; margin: 5px; padding: 5px; background: #f1f1f1; border-radius: 20px; cursor: pointer; }
 #totalPriceContainer { text-align: center; margin: 5px; padding: 5px; }
 #totalPrice { font-weight: bold; }
 #placeholderMessage { text-align: center; padding: 50px; font-size: 24px; font-weight: normal; color: darkgray;}
@@ -101,6 +101,8 @@ function addToSummary(testName, price) {
   const itemDiv = document.createElement('div');
   itemDiv.className = 'summaryItem';
   itemDiv.textContent = `${testName}: ${price}`;
+  itemDiv.setAttribute('data-price', price);
+  itemDiv.onclick = () => removeFromSummary(itemDiv, price);
   summaryTable.appendChild(itemDiv);
  
   totalPriceElement.textContent = totalPrice + price;
@@ -110,6 +112,25 @@ function addToSummary(testName, price) {
   localStorage.setItem('selectedTests', JSON.stringify(tests));
 
   summaryTableContainer.style.display = 'block';
+}
+
+function removeFromSummary(itemDiv, price) {
+  const summaryTable = document.getElementById('summaryTable');
+  const totalPriceElement = document.getElementById('totalPrice');
+  let totalPrice = parseInt(totalPriceElement.textContent);
+
+  summaryTable.removeChild(itemDiv);
+  totalPriceElement.textContent = totalPrice - price;
+
+  // Update localStorage
+  let tests = JSON.parse(localStorage.getItem('selectedTests')) || [];
+  tests = tests.filter(test => test.name !== itemDiv.textContent.split(':')[0].trim());
+  localStorage.setItem('selectedTests', JSON.stringify(tests));
+
+  // Hide summary table container if there are no items left
+  if (summaryTable.children.length === 0) {
+    document.getElementById('summaryTableContainer').style.display = 'none';
+  }
 }
 </script>
 
