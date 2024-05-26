@@ -7,22 +7,22 @@
     <style>
         body{font-family:Arial,sans-serif}
         a { text-decoration: none; color: inherit;}
-        .result-info strong { font-weight: normal; font-size: 17px; }
+        .result-info strong { font-weight: normal; font-size: 17px; text-transform: uppercase;}
         .search-container{text-align:center;margin:1% 0}
         #search-box{width:95%;padding:10px;font-size:16px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px}
         #filters{display:flex;justify-content:center;margin-top:10px}
         #branch-filter, #dept-filter{padding:10px;font-size:16px;border:1px solid #ccc;border-radius:4px;margin:0 5px;width:49%}
         #results{margin-top:20px;padding:0 1%}
-        .result-item{padding:10px 0;display:flex;justify-content:space-between;align-items:center}
+        .result-item{padding:10px 0;display:flex;justify-content:space-between;align-items:center; border-bottom: 1px solid #eee;}
         .result-item:last-child{border-bottom:none}
-        .result-info{flex-grow:1; font-size: 14px;}
+        .result-info{flex-grow:1; font-size: 14px; line-height: 1.5;}
         .call-button{padding:5px 10px;background-color:#28a745;color:#fff;border:none;border-radius:4px;cursor:pointer;text-decoration:none}
         .call-button:hover{background-color:#218838}
     </style>
 </head>
 <body>
     <div class="search-container">
-        <input type="text" id="search-box" placeholder="Search by doctor's nickname...">
+        <input type="text" id="search-box" placeholder="Search Doctors">
         <div id="filters">
             <select id="branch-filter">
                 <option value="">All Branches</option>
@@ -56,14 +56,14 @@
                 branches.forEach(branch => {
                     const option = document.createElement("option");
                     option.value = branch;
-                    option.textContent = capitalizeEachWord(branch);
+                    option.textContent = branch;
                     branchFilter.appendChild(option);
                 });
 
                 departments.forEach(dept => {
                     const option = document.createElement("option");
                     option.value = dept;
-                    option.textContent = capitalizeEachWord(dept);
+                    option.textContent = dept;
                     deptFilter.appendChild(option);
                 });
             }
@@ -78,9 +78,9 @@
                     resultItem.innerHTML = `
                         <div class="result-info">
                             <a href="${url}" target="_blank">
-                                <strong>${capitalizeEachWord(doctor.designation)} ${capitalizeEachWord(doctor.nickName)}</strong><br>
+                                <strong>${doctor.designation} ${doctor.nickName}</strong><br>
                                 ${doctor.qualification.toLowerCase()}<br>
-                                ${capitalizeEachWord(doctor.deptName)} (${capitalizeEachWord(doctor.branchName)})
+                                ${doctor.deptName} [${doctor.branchName}]
                             </a>
                         </div>
                         <a href="${callLink}" class="call-button">Call</a>
@@ -103,10 +103,6 @@
                 });
 
                 displayResults(filteredDoctors);
-            }
-
-            function capitalizeEachWord(str) {
-                return str.replace(/\b\w/g, char => char.toUpperCase());
             }
 
             fetchData().then(doctors => {
