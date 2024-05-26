@@ -429,7 +429,7 @@
         "designation": "Consultant",
         "branchName": "Savar",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": null
     },
     {
@@ -760,7 +760,7 @@
         "designation": "Associate Professor",
         "branchName": "Savar",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": null
     },
     {
@@ -1081,7 +1081,7 @@
         "designation": "Consultant",
         "branchName": "Savar",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": ""
     },
     {
@@ -2007,7 +2007,7 @@
         "designation": "ASSO. PROF. DR. MD.",
         "branchName": "Uttara",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "518"
     },
     {
@@ -2771,7 +2771,7 @@
         "designation": "DR. Mohammed",
         "branchName": "Uttara",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "offdayEnd": null,
         "offdayStart": null,
         "attendantInfo": "Kursia 01743416928 #637"
@@ -3176,7 +3176,7 @@
         "designation": "DR.",
         "branchName": "Uttara",
         "deptId": 93,
-        "deptName": "Breast Surgery and cosmetic",
+        "deptName": "Burn and Plastics Surgery",
         "attendantInfo": "623"
     },
     {
@@ -4311,7 +4311,7 @@
         "designation": "Prof.",
         "branchName": "Uttara",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Mamun 01926433840 #928"
     },
     {
@@ -4898,7 +4898,7 @@
         "designation": "Assist. Prof. Dr.",
         "branchName": "Uttara",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "offdayEnd": null,
         "offdayStart": null,
         "attendantInfo": "santa 01782227629  #738"
@@ -5692,7 +5692,7 @@
         "designation": "ASST.PROF.",
         "branchName": "Malibagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": null
     },
     {
@@ -6410,7 +6410,7 @@
         "designation": "DR.",
         "branchName": "Malibagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": ""
     },
     {
@@ -6536,7 +6536,7 @@
         "designation": "ASSOC. PROF. DR.",
         "branchName": "Malibagh",
         "deptId": 119,
-        "deptName": "General Surgery, Laparoscopy, Plastic &amp; Cosmetics Surgery",
+        "deptName": "Burn and Plastics Surgery",
         "attendantInfo": ""
     },
     {
@@ -6768,7 +6768,7 @@
         "designation": "DR.",
         "branchName": "Malibagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "15"
     },
     {
@@ -7801,7 +7801,7 @@
         "designation": "ASST. PROF.",
         "branchName": "Badda",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "PABX-416 Card - 19"
     },
     {
@@ -8074,7 +8074,7 @@
         "designation": "ASST. PROF.",
         "branchName": "Badda",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "  PABX-617 Card - 20"
     },
     {
@@ -8753,7 +8753,7 @@
         "designation": "Asst. Register",
         "branchName": "Badda",
         "deptId": 108,
-        "deptName": "Cardiac surgery",
+        "deptName": "Cardiology",
         "attendantInfo": " PABX -  418 Card - 17"
     },
     {
@@ -9649,7 +9649,7 @@
         "designation": "Consultant",
         "branchName": "Chattogram",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "RASHED KAMAL 600"
     },
     {
@@ -9945,7 +9945,7 @@
         "designation": "Consultant",
         "branchName": "Chattogram",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Mizan PABX - 700 "
     },
     {
@@ -11594,7 +11594,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Dlab Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Mollika , 01818761321| Ext. 320 (Card-37)"
     },
     {
@@ -11615,7 +11615,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Dlab Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Fahad |01949576112| Ext. 320 (Card-37)"
     },
     {
@@ -12259,7 +12259,7 @@
         "designation": "Prof.",
         "branchName": "Dlab Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Abu Sayeed| 01842688245 | Ext. 473 (Card-35)"
     },
     {
@@ -12850,7 +12850,7 @@
         "designation": "Consultant",
         "branchName": "Dlab Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "aminul 01324962932 (Card-38)"
     },
     {
@@ -13060,7 +13060,7 @@
         "designation": "Prof. Dr.",
         "branchName": "Dlab Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Sumon Khan , 01915781144  PABX -300 (Card-142)"
     },
     {
@@ -13333,7 +13333,7 @@
         "designation": "Asst.Prof.",
         "branchName": "Mirpur",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "514"
     },
     {
@@ -14797,7 +14797,7 @@
         "designation": "Prof.Dr.",
         "branchName": "Mirpur",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "9520"
     },
     {
@@ -15791,7 +15791,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Bogura",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Ferdous| 01710-245486| Ext. 700"
     },
     {
@@ -16065,7 +16065,7 @@
         "designation": "Dr. Md.",
         "branchName": "Bogura",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Ahsan Habib|01766-046700| Ext. 501"
     },
     {
@@ -16743,7 +16743,7 @@
         "designation": "Prof.Dr.",
         "branchName": "Doyagonj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "510 (Zishan-01725164750) "
     },
     {
@@ -17631,7 +17631,7 @@
         "designation": "Assit.Prof.Dr.",
         "branchName": "Doyagonj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "507(Ibrahim-01926436029"
     },
     {
@@ -18309,7 +18309,7 @@
         "designation": "Assit.Prof.Dr.",
         "branchName": "Doyagonj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "517 (Parvez-01775738784"
     },
     {
@@ -18564,7 +18564,7 @@
         "designation": "Asst. Prof.Dr.",
         "branchName": "Doyagonj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "405(Shewly-01793240055"
     },
     {
@@ -19135,7 +19135,7 @@
         "designation": "CONSULTANT",
         "branchName": "Ibn Sina Jashore",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "offdayEnd": null,
         "offdayStart": null,
         "attendantInfo": "ABC/01706363640-41/ 02477763113-5"
@@ -19158,7 +19158,7 @@
         "designation": "",
         "branchName": "Ibn Sina Jashore",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "ABC/01706363640-41/ 02477763113-5"
     },
     {
@@ -19603,7 +19603,7 @@
         "designation": "",
         "branchName": "Ibn Sina Jashore",
         "deptId": 93,
-        "deptName": "Breast Surgery and cosmetic",
+        "deptName": "Burn and Plastics Surgery",
         "attendantInfo": "ABC/01929454545/ 02477763113-5"
     },
     {
@@ -20947,7 +20947,7 @@
         "designation": "Prof.",
         "branchName": "Kallyanpur",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "ABDULLAH 01755944358"
     },
     {
@@ -21374,7 +21374,7 @@
         "designation": "Consultant",
         "branchName": "Kallyanpur",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "offdayEnd": null,
         "offdayStart": null,
         "attendantInfo": "RUMA:01908746374"
@@ -21981,7 +21981,7 @@
         "designation": "Prof.",
         "branchName": "Kallyanpur",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "laboni 01316348597"
     },
     {
@@ -24596,7 +24596,7 @@
         "designation": "Assoc. Prof.",
         "branchName": "Keraniganj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "offdayEnd": null,
         "offdayStart": null,
         "attendantInfo": null
@@ -24619,7 +24619,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Keraniganj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": null
     },
     {
@@ -26058,7 +26058,7 @@
         "designation": "Consultant Dr.",
         "branchName": "Keraniganj",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "027763164-8"
     },
     {
@@ -26566,7 +26566,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Cumilla",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "02-334404470-73, 01841-212275, 01841-212276"
     },
     {
@@ -28155,7 +28155,7 @@
         "designation": "Assoc. Prof. Dr.",
         "branchName": "Hospital Dhanmondi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "name | 01712225191 | PABX"
     },
     {
@@ -29335,7 +29335,7 @@
         "designation": "Prof.Dr.",
         "branchName": "Zigatola",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Mamun|01611883334|311"
     },
     {
@@ -29399,7 +29399,7 @@
         "designation": "Dr.",
         "branchName": "Zigatola",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "khaleda|01568528907|413"
     },
     {
@@ -30504,7 +30504,7 @@
         "designation": "Dr.",
         "branchName": "Zigatola",
         "deptId": 119,
-        "deptName": "General Surgery, Laparoscopy, Plastic &amp; Cosmetics Surgery",
+        "deptName": "General Surgery",
         "attendantInfo": "Al-Amin|01914608380|115"
     },
     {
@@ -30525,7 +30525,7 @@
         "designation": "Dr.",
         "branchName": "Zigatola",
         "deptId": 119,
-        "deptName": "General Surgery, Laparoscopy, Plastic &amp; Cosmetics Surgery",
+        "deptName": "General Surgery",
         "attendantInfo": "Al-Amin|01914608380|115"
     },
     {
@@ -30840,7 +30840,7 @@
         "designation": "Consultant",
         "branchName": "Lalbagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "MS HENA AKTER-01685838693"
     },
     {
@@ -30882,7 +30882,7 @@
         "designation": "Asst. Prof",
         "branchName": "Lalbagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Saima 01633764164"
     },
     {
@@ -31601,7 +31601,7 @@
         "designation": "Assistant Professor",
         "branchName": "Lalbagh",
         "deptId": 93,
-        "deptName": "Breast Surgery and cosmetic",
+        "deptName": "Burn and Plastics Surgery",
         "attendantInfo": " asima afroz 01748056493"
     },
     {
@@ -31664,7 +31664,7 @@
         "designation": "Associate Professor",
         "branchName": "Lalbagh",
         "deptId": 93,
-        "deptName": "Breast Surgery and cosmetic",
+        "deptName": "Burn and Plastics Surgery",
         "attendantInfo": "SUFIA KAMAL AKHI -01627668140"
     },
     {
@@ -31811,7 +31811,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Lalbagh",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Sweety 01608061409"
     },
     {
@@ -33741,7 +33741,7 @@
         "designation": "ASSIST. PROF.",
         "branchName": "Sylhet",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "MINHAZ"
     },
     {
@@ -33762,7 +33762,7 @@
         "designation": "DR",
         "branchName": "Sylhet",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "NIZAM"
     },
     {
@@ -36770,7 +36770,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Rajshahi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Jubaida|01773-490915| 719"
     },
     {
@@ -37425,7 +37425,7 @@
         "designation": "Consultant.",
         "branchName": "Rajshahi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Joy|01783-045473| 819"
     },
     {
@@ -37637,7 +37637,7 @@
         "designation": "Asst. Prof.",
         "branchName": "Rajshahi",
         "deptId": 39,
-        "deptName": "Chest",
+        "deptName": "Chest Medicine",
         "attendantInfo": "Joy|01783-045473| 819"
     },
     {
